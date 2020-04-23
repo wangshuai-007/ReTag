@@ -1,0 +1,27 @@
+trigger:
+  branches:
+    include:
+    - master
+    - releases/*
+  paths:
+    include:
+    - azure-pipelines.yml
+pool:
+  vmImage: ubuntu-latest
+variables:
+  tag: aspnet
+steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: tencentyun
+    command: login
+- task: PowerShell@2
+  inputs:
+    targetType: inline
+    script: "$env:version=\"$(tag)\"\n\ndocker pull mcr.microsoft.com/dotnet/core/$env:version\n\ndocker tag mcr.microsoft.com/dotnet/core/$env:version ccr.ccs.tencentyun.com/dotnet-core/$env:version\ndocker push ccr.ccs.tencentyun.com/dotnet-core/$env:version\0"
+- task: azuredevopsgithub@0
+  displayName: '发送到方糖'
+  inputs:
+    gitHubConnection: 'GitHub connection 1'
+    method: GET
+    githubrestapiurl: 'https://sc.ftqq.com/$(SCKEY).send?text=retagSuccess&desp=$(tag)'    
