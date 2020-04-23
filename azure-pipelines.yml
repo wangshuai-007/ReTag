@@ -22,6 +22,6 @@ steps:
 - task: azuredevopsgithub@0
   displayName: '发送到方糖'
   inputs:
-    gitHubConnection: 'GitHub connection 1'
+    gitHubConnection: 'GitHub connection'
     method: GET
     githubrestapiurl: 'https://sc.ftqq.com/$(SCKEY).send?text=retagSuccess&desp=$(tag)'    
