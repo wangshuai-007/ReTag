@@ -25,3 +25,9 @@ steps:
     method: GET
     gitHubConnection: GitHub connection
     githubrestapiurl: https://sc.ftqq.com/$(SCKEY).send?text=retagSuccess&desp=$(tag)
+- task: wangshuai.SendToSc.custom-build-release-task.SendToftqq@0
+  displayName: 'Send message to ftqq'
+  inputs:
+    ftqqConnection: ftqqConnection
+    text: retaggg
+    desp: 'It is ok'
