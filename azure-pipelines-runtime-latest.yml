@@ -10,7 +10,8 @@ schedules:
     - releases/*
   always: true
   
-trigger: none
+trigger:
+- master
 
 
 variables:
