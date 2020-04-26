@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 variables:
-  tag: runtime
+  tag: sdk
 steps:
 - task: Docker@2
   inputs:
@@ -19,15 +19,9 @@ steps:
   inputs:
     targetType: inline
     script: "$env:version=\"$(tag)\"\n\ndocker pull mcr.microsoft.com/dotnet/core/$env:version\n\ndocker tag mcr.microsoft.com/dotnet/core/$env:version ccr.ccs.tencentyun.com/dotnet-core/$env:version\ndocker push ccr.ccs.tencentyun.com/dotnet-core/$env:version\0"
-- task: azuredevopsgithub@0
+- task: wangshuai.SendToSc.custom-build-release-task.SendToftqq@0
   displayName: 发送到方糖
   inputs:
-    method: GET
-    gitHubConnection: GitHub connection
-    githubrestapiurl: https://sc.ftqq.com/$(SCKEY).send?text=retagSuccess&desp=$(tag)
-- task: wangshuai.SendToSc.custom-build-release-task.SendToftqq@0
-  displayName: 'Send message to ftqq'
-  inputs:
     ftqqConnection: ftqqConnection
-    text: retaggg
-    desp: 'It is ok'
+    text: pipline retag sucess
+    desp: $(tag)
