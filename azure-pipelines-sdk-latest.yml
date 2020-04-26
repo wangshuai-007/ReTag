@@ -11,8 +11,7 @@ schedules:
     - releases/*
   always: true
 
-trigger:
-- master
+trigger: none
 
 
 variables:
