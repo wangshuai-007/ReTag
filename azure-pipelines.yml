@@ -19,7 +19,7 @@ steps:
   inputs:
     targetType: inline
     script: "$env:version=\"$(tag)\"\n\ndocker pull mcr.microsoft.com/dotnet/core/$env:version\n\ndocker tag mcr.microsoft.com/dotnet/core/$env:version ccr.ccs.tencentyun.com/dotnet-core/$env:version\ndocker push ccr.ccs.tencentyun.com/dotnet-core/$env:version\0"
-- task: wangshuai.Message.send-message-task.SendToftqq@0
+- task: wangshuai.Message.send-message-task.SendToftqq@1
   displayName: 发送到方糖
   inputs:
     ftqqConnection: ftqqConnection
