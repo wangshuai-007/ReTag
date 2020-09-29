@@ -15,7 +15,7 @@ trigger: none
 
 
 variables:
-  tag: 'sdk:2.1'
+  tag: 'sdk'
 
 steps:
 - task: Docker@2

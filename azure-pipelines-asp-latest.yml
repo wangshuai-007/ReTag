@@ -14,7 +14,7 @@ trigger: none
 
 
 variables:
-  tag: 'aspnet:2.1'
+  tag: 'aspnet'
 
 steps:
 - task: Docker@2

@@ -15,7 +15,7 @@ trigger: none
 
 
 variables:
-  tag: 'runtime:2.1'
+  tag: 'runtime'
 
 steps:
 - task: Docker@2
