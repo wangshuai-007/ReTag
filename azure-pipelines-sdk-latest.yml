@@ -28,7 +28,7 @@ steps:
     script: |
       $env:version="$(tag)"
       
-      docker pull mcr.microsoft.com/dotnet/core/$env:version
+      docker pull mcr.microsoft.com/dotnet/$env:version
       
-      docker tag mcr.microsoft.com/dotnet/core/$env:version ccr.ccs.tencentyun.com/dotnet-core/$env:version
+      docker tag mcr.microsoft.com/dotnet/$env:version ccr.ccs.tencentyun.com/dotnet-core/$env:version
       docker push ccr.ccs.tencentyun.com/dotnet-core/$env:version
