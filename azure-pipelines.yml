@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 variables:
-  tag: sdk:5.0.100
+  tag: sdk:5.0.101
 steps:
 - task: Docker@2
   inputs:
