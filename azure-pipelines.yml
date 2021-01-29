@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 variables:
-  tag: aspnet:5.0.1
+  tag: sdk:5.0.102
 steps:
 - task: Docker@2
   inputs:
