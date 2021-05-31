@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 variables:
-  tag: sdk:5.0.102-ca-patch-buster-slim
+  tag: sdk:6.0
 steps:
 - task: Docker@2
   inputs:
